@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,6 @@ use App\Http\Controllers\PostsController;
 // });
 
 Route::get('/blog', [PostsController::class, 'index']);
+
+// Route for invoke method
+Route::get('/', HomeController::class);
