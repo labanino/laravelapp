@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $name = "Code For Designers";
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-    return view('welcome', [
-        'name' => $name
-    ]);
-});
+Route::get('/blog', [PostsController::class, 'index']);
