@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\FallbackController;
 
 /*
     GET - Request a resource
@@ -13,19 +14,13 @@ use App\Http\Controllers\HomeController;
     OPTION - Ask the server which verbs are allowed
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-// GET
-
 Route::prefix('/blog')->group(function () {
     Route::get('/', [PostsController::class, 'index'])->name('blog.index');
     Route::get('/{id}', [PostsController::class, 'show'])->name('blog.show');
     Route::get('/create', [PostsController::class, 'create'])->name('blog.create');
     Route::post('/', [PostsController::class, 'store'])->name('blog.store');
     Route::get('/edit/{id}', [PostsController::class, 'edit'])->name('blog.edit');
-    Route::post('/{id}', [PostsController::class, 'update'])->name('blog.update');
+    Route::patch('/{id}', [PostsController::class, 'update'])->name('blog.update');
     Route::delete('/{id}', [PostsController::class, 'destroy'])->name('blog.destroy');
 });
 
@@ -40,3 +35,6 @@ Route::get('/', HomeController::class);
 
 // Return a view
 // Route::view('/blog', 'blog.index', ['name' => 'Code With Alex']);
+
+// Fallback Route
+Route::fallback(FallbackController::class);
