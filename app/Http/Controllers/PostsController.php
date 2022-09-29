@@ -15,8 +15,7 @@ class PostsController extends Controller
     public function index()
     {
         $posts = DB::table('posts')
-            ->distinct()
-            ->get();
+            ->avg('min_to_read');
 
         dd($posts);
 
