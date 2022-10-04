@@ -31,7 +31,7 @@
     </div>
 
     @foreach ($posts as $post)
-      <div class="w-4/5 mx-auto pb-10">
+    <div class="w-4/5 mx-auto pb-10">
         <div class="bg-white pt-10 rounded-lg drop-shadow-2xl sm:basis-3/4 basis-full sm:mr-8 pb-10 sm:pb-0">
             <div class="w-11/12 mx-auto pb-10">
                 <h2 class="text-gray-900 text-2xl font-bold pt-6 pb-0 sm:pt-0 hover:text-gray-700 transition-all">
@@ -49,7 +49,11 @@
                         <a href="" class="text-green-500 italic hover:text-green-400 hover:border-b-2 border-green-400 pb-3 transition-all">
                             Dary
                         </a>
-                    on 13-07-2022
+                    on 13-07-2022 | 
+                    
+                    <a href="{{ route('blog.edit', $post->id) }}" class="italic text-green-500 border-b-1 border-green-400" >
+                        Edit
+                    </a>
                 </span>
             </div>
         </div>
