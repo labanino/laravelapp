@@ -58,9 +58,9 @@
                 <span class="text-gray-500 text-sm sm:text-base">
                     Made by:
                         <a href="" class="text-green-500 italic hover:text-green-400 hover:border-b-2 border-green-400 pb-3 transition-all">
-                            Dary
+                            {{ $post->user->name }}
                         </a>
-                    on 13-07-2022 | 
+                    on {{ $post->updated_at->format('d/m/Y') }} | 
                     
                     <a href="{{ route('blog.edit', $post->id) }}" class="italic text-green-500 border-b-1 border-green-400" >
                         Edit
